@@ -1,9 +1,10 @@
-import SignUp from "./SignUp";
+// import SignUp from "./SignUp";
 
 const Home = () => {
     return (
         <>
-            <SignUp />
+            <h1 className=" text-red-500 font-bold">Home Page</h1>
+            {/* <SignUp /> */}
         </>
     )
 }

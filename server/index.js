@@ -10,11 +10,16 @@ import errorHandler from './middlewares/errorHandler.middleware.js';
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const app = express();
-app.use(bodyParser.json());
-app.use(cookieParser())
-app.use(cors());
-
 connectDB();
+
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
+
 app.use('/', authRoute);
 app.use(errorHandler); 
 

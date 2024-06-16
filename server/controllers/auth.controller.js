@@ -33,13 +33,13 @@ export const signin = async (req, res, next) => {
         res.cookie('token', token, {
             httpOnly: true,
             secure: true, 
-            maxAge: 2 * 60 * 1000,
+            maxAge: 2 * 60 * 1000, 
             sameSite: 'strict'
         });
+        console.log('Cookie set successfully');
 
         res.status(200).json({ message: "Authentication Successful", data, token });
     } catch (error) {
-        console.error(error);
         return next(createError(500, "Internal Server Error"));
     }
 };
